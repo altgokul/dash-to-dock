@@ -40,7 +40,7 @@ const myDashActor = new Lang.Class({
 
     _init: function(settings) {
         this._settings = settings;
-        let layout = new Clutter.BoxLayout({ orientation: Clutter.Orientation.VERTICAL });
+        let layout = new Clutter.BoxLayout({ orientation: Clutter.Orientation.HORIZONTAL });
         this.parent({ name: 'dash',
                       layout_manager: layout,
                       clip_to_allocation: true });
@@ -57,24 +57,24 @@ const myDashActor = new Lang.Class({
 
         let childBox = new Clutter.ActorBox();
         if( this._settings.get_boolean('show-apps-at-top') ) {
-            childBox.x1 = contentBox.x1;
-            childBox.y1 = contentBox.y1 + showAppsNatHeight;
+            childBox.x1 = contentBox.x1 + showAppsNatHeight;
+            childBox.y1 = contentBox.y1;
             childBox.x2 = contentBox.x2;
             childBox.y2 = contentBox.y2;
             appIcons.allocate(childBox, flags);
 
-            childBox.y1 = contentBox.y1;
-            childBox.y2 = contentBox.y1 + showAppsNatHeight;
+            childBox.x1 = contentBox.x1;
+            childBox.x2 = contentBox.x1 + showAppsNatHeight;
             showAppsButton.allocate(childBox, flags);
         } else {
             childBox.x1 = contentBox.x1;
             childBox.y1 = contentBox.y1;
-            childBox.x2 = contentBox.x2;
-            childBox.y2 = contentBox.y2 - showAppsNatHeight;
+            childBox.x2 = contentBox.x2 - showAppsNatHeight;
+            childBox.y2 = contentBox.y2;
             appIcons.allocate(childBox, flags);
 
-            childBox.y1 = contentBox.y2 - showAppsNatHeight;
-            childBox.y2 = contentBox.y2;
+            childBox.x1 = contentBox.x2 - showAppsNatHeight;
+            childBox.x2 = contentBox.x2;
             showAppsButton.allocate(childBox, flags);
         }
     },
@@ -112,7 +112,7 @@ const myDash = new Lang.Class({
 
     _init : function(settings) {
         this._maxHeight = -1;
-        this.iconSize = 64;
+        this.iconSize = 16;
         this._avaiableIconSize = Dash.baseIconSizes;
         this._shownInitially = false;
 
@@ -127,7 +127,7 @@ const myDash = new Lang.Class({
         this._labelShowing = false;
 
         this._container = new myDashActor(settings);
-        this._box = new St.BoxLayout({ vertical: true,
+        this._box = new St.BoxLayout({ vertical: false,
                                        clip_to_allocation: true });
         this._box._delegate = this;
         this._container.add_actor(this._box);
@@ -143,7 +143,7 @@ const myDash = new Lang.Class({
         this._container.add_actor(this._showAppsIcon);
 
         this.actor = new St.Bin({ child: this._container,
-            y_align: St.Align.START });
+            y_align: St.Align.START, x_align: St.Align.START });
         this.actor.connect('notify::height', Lang.bind(this,
             function() {
                 if (this._maxHeight != this.actor.height)
@@ -407,7 +407,7 @@ const myDash = new Lang.Class({
         availHeight -= iconChildren.length * (natHeight - this.iconSize * scaleFactor) +
                        (iconChildren.length - 1) * spacing;
 
-        let availSize = availHeight / iconChildren.length;
+        let availSize = 24; //availHeight / iconChildren.length;
 
         let iconSizes = this._avaiableIconSize;
 
