@@ -166,6 +166,9 @@ const dockedDash = new Lang.Class({
         // authohide current status. Not to be confused with autohide enable/disagle global (g)settings
         this._autohideStatus = this._settings.get_boolean('autohide') && !this._settings.get_boolean('dock-fixed');
 
+        // should be embedded in the top bar?
+        this._eitb = this._settings.get_boolean('embed-in-top-bar');
+
         // initialize animation status object
         this._animStatus = new animationStatus(true);
 
@@ -205,7 +208,8 @@ const dockedDash = new Lang.Class({
 
         // This is the vertical centering actor
         this.actor = new St.Bin({ name: 'dashtodockContainer',reactive: false,
-            y_align: St.Align.START, x_align: St.Align.START});
+            y_align: (this._eitb ? St.Align.START : St.Align.MIDDLE),
+            x_align: (this._eitb ? St.Align.START : St.Align.MIDDLE)});
         this.actor._delegate = this;
 
         // This is the sliding actor whose allocation is to be tracked for input regions
@@ -217,7 +221,7 @@ const dockedDash = new Lang.Class({
         this._box.connect("notify::hover", Lang.bind(this, this._hoverChanged));
 
         // Create and apply height constraint to the dash. It's controlled by this.actor height
-        this.actor.height = 16 ; //Main.overview.viewSelector.actor.height; // Guess initial reasonable height.
+        this.actor.height = this._eitb ? 24 : Main.overview.viewSelector.actor.height; // Guess initial reasonable height.
         this.constrainHeight = new Clutter.BindConstraint({ source: this.actor,
                                                             coordinate: Clutter.BindCoordinate.HEIGHT });
         this.dash.actor.add_constraint(this.constrainHeight);
@@ -333,8 +337,12 @@ const dockedDash = new Lang.Class({
         // Add aligning container without tracking it for input region (old affectsinputRegion: false that was removed).
         // The public method trackChrome requires the actor to be child of a tracked actor. Since I don't want the parent
         // to be tracked I use the private internal _trackActor instead.
-        //Main.uiGroup.add_child(this.actor);
-        Main.panel._centerBox.add_child(this.actor);
+        if (this._eitb) {
+            Main.panel._centerBox.add_child(this.actor);
+        }
+        else {
+            Main.uiGroup.add_child(this.actor);
+        }
         Main.layoutManager._trackActor(this._slider, {trackFullscreen: true});
 
         // The dash need to be above the top_window_group, otherwise it doesn't

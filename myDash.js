@@ -40,7 +40,8 @@ const myDashActor = new Lang.Class({
 
     _init: function(settings) {
         this._settings = settings;
-        let layout = new Clutter.BoxLayout({ orientation: Clutter.Orientation.HORIZONTAL });
+        this._eitb = this._settings.get_boolean('embed-in-top-bar');
+        let layout = new Clutter.BoxLayout({ orientation: (this._eitb ? Clutter.Orientation.HORIZONTAL : Clutter.Orientation.VERTICAL) });
         this.parent({ name: 'dash',
                       layout_manager: layout,
                       clip_to_allocation: true });
@@ -57,24 +58,43 @@ const myDashActor = new Lang.Class({
 
         let childBox = new Clutter.ActorBox();
         if( this._settings.get_boolean('show-apps-at-top') ) {
-            childBox.x1 = contentBox.x1 + showAppsNatHeight;
-            childBox.y1 = contentBox.y1;
+            childBox.x1 = contentBox.x1 + ( this._eitb ? showAppsNatHeight : 0 );
+            childBox.y1 = contentBox.y1 + ( this._eitb ? 0 : showAppsNatHeight );
             childBox.x2 = contentBox.x2;
             childBox.y2 = contentBox.y2;
             appIcons.allocate(childBox, flags);
 
-            childBox.x1 = contentBox.x1;
-            childBox.x2 = contentBox.x1 + showAppsNatHeight;
+            if (this._eitb) {
+                childBox.x1 = contentBox.x1;
+                childBox.x2 = contentBox.x1 + showAppsNatHeight;
+            }
+            else {
+                childBox.y1 = contentBox.y1;
+                childBox.y2 = contentBox.y1 + showAppsNatHeight;
+            }
             showAppsButton.allocate(childBox, flags);
-        } else {
+        } 
+        else {
             childBox.x1 = contentBox.x1;
             childBox.y1 = contentBox.y1;
-            childBox.x2 = contentBox.x2 - showAppsNatHeight;
-            childBox.y2 = contentBox.y2;
+            if (this._eitb) {
+                childBox.x2 = contentBox.x2 - showAppsNatHeight;
+                childBox.y2 = contentBox.y2;
+            }
+            else {
+                childBox.x2 = contentBox.x2;
+                childBox.y2 = contentBox.y2 - showAppsNatHeight;
+            }
             appIcons.allocate(childBox, flags);
-
-            childBox.x1 = contentBox.x2 - showAppsNatHeight;
-            childBox.x2 = contentBox.x2;
+    
+            if (this._eitb) {
+                childBox.x1 = contentBox.x2 - showAppsNatHeight;
+                childBox.x2 = contentBox.x2;
+            }
+            else {
+                childBox.y1 = contentBox.y2 - showAppsNatHeight;
+                childBox.y2 = contentBox.y2;
+            }
             showAppsButton.allocate(childBox, flags);
         }
     },
@@ -112,7 +132,7 @@ const myDash = new Lang.Class({
 
     _init : function(settings) {
         this._maxHeight = -1;
-        this.iconSize = 16;
+        this.iconSize = this._eitb ? 24 : 64;
         this._avaiableIconSize = Dash.baseIconSizes;
         this._shownInitially = false;
 
@@ -127,7 +147,8 @@ const myDash = new Lang.Class({
         this._labelShowing = false;
 
         this._container = new myDashActor(settings);
-        this._box = new St.BoxLayout({ vertical: false,
+        this._eitb = settings.get_boolean('embed-in-top-bar');
+        this._box = new St.BoxLayout({ vertical: (this._eitb ? false : true),
                                        clip_to_allocation: true });
         this._box._delegate = this;
         this._container.add_actor(this._box);
@@ -143,7 +164,7 @@ const myDash = new Lang.Class({
         this._container.add_actor(this._showAppsIcon);
 
         this.actor = new St.Bin({ child: this._container,
-            y_align: St.Align.START, x_align: St.Align.START });
+            y_align: St.Align.START, x_align: (this._eitb ? St.Align.START : St.Align.MIDDLE) });
         this.actor.connect('notify::height', Lang.bind(this,
             function() {
                 if (this._maxHeight != this.actor.height)
@@ -407,7 +428,7 @@ const myDash = new Lang.Class({
         availHeight -= iconChildren.length * (natHeight - this.iconSize * scaleFactor) +
                        (iconChildren.length - 1) * spacing;
 
-        let availSize = 24; //availHeight / iconChildren.length;
+        let availSize = this._eitb ? 24 : (availHeight / iconChildren.length);
 
         let iconSizes = this._avaiableIconSize;
 

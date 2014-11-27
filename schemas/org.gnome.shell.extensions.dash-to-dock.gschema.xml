@@ -92,6 +92,11 @@
       <summary>Apply custom theme</summary>
       <description>Apply customization to the dash appearence</description>
     </key>
+	<key type="b" name="embed-in-top-bar">
+      <default>false</default>
+      <summary>Embed in top bar</summary>
+      <description>Embed dash-to-dock in the top bar</description>
+	</key>
     <key type="b" name="show-running">
       <default>true</default>
       <summary>Show running apps</summary>

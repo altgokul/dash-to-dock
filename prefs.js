@@ -336,6 +336,21 @@ const WorkspaceSettingsWidget = new GObject.Class({
     let customization = new Gtk.Box({orientation:Gtk.Orientation.VERTICAL});
     let customizationTitle = new Gtk.Label({label: _("Optional features")});
 
+    /* EMBED IN THE TOP PANEL */
+    let embedInTopBarControl = new Gtk.Box({margin_left:10, margin_top:10, margin_bottom:5, margin_right:10});
+
+    let embedInTopBarLabel = new Gtk.Label({label: _("Embed in the top bar"),
+                                              xalign: 0, hexpand:true});
+    let embedInTopBar = new Gtk.Switch({halign:Gtk.Align.END});
+            embedInTopBar.set_active(this.settings.get_boolean('embed-in-top-bar'));
+            embedInTopBar.connect('notify::active', Lang.bind(this, function(check){
+                this.settings.set_boolean('embed-in-top-bar', check.get_active());
+            }));
+
+    embedInTopBarControl.add(embedInTopBarLabel)
+    embedInTopBarControl.add(embedInTopBar)
+    customization.add(embedInTopBarControl);
+
     /* CUSTOM THEME */
     let customThemeControl = new Gtk.Box({margin_left:10, margin_top:10, margin_bottom:5, margin_right:10});
 

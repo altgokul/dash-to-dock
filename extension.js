@@ -28,8 +28,10 @@ function hide(){
 }
 
 function enable() {
-    moveClock.enable_clock_move();
     settings = Convenience.getSettings('org.gnome.shell.extensions.dash-to-dock');
+	if (settings.get_boolean('embed-in-top-bar')){
+		moveClock.enable_clock_move();
+	}
     dock = new DockedDash.dockedDash(settings);
     intellihide = new Intellihide.intellihide(show, hide, dock, settings);
 
@@ -44,7 +46,9 @@ function disable() {
     intellihide.destroy();
     dock.destroy();
     settings.run_dispose();
-    moveClock.disable_clock_move();
+	if (settings.get_boolean('embed-in-top-bar')){
+		moveClock.disable_clock_move();
+	}
     Main.overview._dash = oldDash;
 
     dock=null;
