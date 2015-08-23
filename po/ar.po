@@ -1,106 +1,102 @@
-# Translation for de
-# Copyright (C) 2014 Michele
-# This file is distributed under the same license as the dash-to-dock package.
-# Morris Jobke <hey@morrisjobke.de>, 2014.
-# Jonatan Zeidler <jonatan_zeidler@hotmail.de>, 2012
-# jonius <jonatan_zeidler@gmx.de>, 2012
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Dash to Dock\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-08-03 18:59+0100\n"
-"PO-Revision-Date: 2015-05-26 23:21+0100\n"
-"Last-Translator: Agilo Luitger Kern <post@agilo-kern.de>\n"
-"Language-Team: jonius <jonatan_zeidler@gmx.de>\n"
-"Language: de\n"
+"PO-Revision-Date: 2015-04-18 18:01+0100\n"
+"Last-Translator: Jean-Baptiste Le Cz <jb.lecoz@gmail.com>\n"
+"Language-Team: Faissal Chamekh <chamfay@gmail.com>\n"
+"Language: ar_DZ\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
 "X-Generator: Poedit 1.7.5\n"
+"X-Poedit-SourceCharset: UTF-8\n"
 
-# Konjugation wegen Stellung im Satz
 #: prefs.js:69
 msgid "Primary monitor"
-msgstr "Primärer Anzeige"
+msgstr "الشاشة الرئيسية"
 
-# Konjugation wegen Stellung im Satz
 #: prefs.js:78 prefs.js:85
 msgid "Secondary monitor "
-msgstr "Sekundärer Anzeige"
+msgstr "الشاشة الثانوية"
 
 #: prefs.js:110 Settings.ui.h:6
 msgid "Right"
-msgstr "Rechts"
+msgstr "يمين"
 
 #: prefs.js:111 Settings.ui.h:3
 msgid "Left"
-msgstr "Links"
+msgstr "يسار"
 
 #: prefs.js:161
 msgid "Intelligent autohide customization"
-msgstr "Automatisches Ausblenden anpassen"
+msgstr "تخصيص الإخفاء التلقائي"
 
-# Verwende Übersetzung aus Nautilus
 #: prefs.js:168
 msgid "Reset to defaults"
-msgstr "Auf Vorgaben zurücksetzen"
+msgstr "العودة للافتراضي"
 
 #: Settings.ui.h:1
 msgid "Show the dock on"
-msgstr "Dock anzeigen auf"
+msgstr "أظهر المرساة فوق"
 
 #: Settings.ui.h:2
 msgid "Position on screen"
-msgstr "Position auf Bildschirm"
+msgstr "الموضع على الشاشة"
 
 #: Settings.ui.h:4
 msgid "Bottom"
-msgstr "Unten"
+msgstr "أسفل"
 
 #: Settings.ui.h:5
 msgid "Top"
-msgstr "Oben"
+msgstr "أعلى"
 
 #: Settings.ui.h:7
 msgid ""
 "Hide the dock when it obstructs a window of the the current application. "
 "More refined settings are available."
-msgstr ""
-"Das Dock automatisch ausblenden, falls es ein Fenster der laufenden "
-"Anwendung überlagert. Einstellungen können weiter verfeinert werden."
+msgstr "إخفاء المرساة عندما تحجب نافذة التطبيق الحالي. تخصيصات أكثر متوفرة."
 
 #: Settings.ui.h:8
 msgid "Intelligent autohide"
-msgstr "Automatisch ausblenden"
+msgstr "إخفاء تلقائي ذكي"
 
 #: Settings.ui.h:9
 msgid "Dock size limit"
-msgstr "Maximale Dockgröße"
+msgstr "حدّ حجم المرساة"
 
 #: Settings.ui.h:10
 msgid "Panel mode: extend to the screen edge"
-msgstr "Panelmodus: bis zu Bildschirmkanten ausdehnen"
+msgstr "نمط الشريط: تمديد إلى حواف الشاشة"
 
 #: Settings.ui.h:11
 msgid "Icon size limit"
-msgstr "Maximale Icongröße"
+msgstr "حدّ حجم الأيقونة"
 
 #: Settings.ui.h:12
 msgid "Fixed icon size: scroll to reveal other icons"
-msgstr "Feste Icongröße: andere Icons durch Scrollen sichtbar machen"
+msgstr "حجم أيقونات ثابت: استعمل التمرير لكشف أيقونات أخرى"
 
 #: Settings.ui.h:13
 msgid "Position and size"
-msgstr "Position und Größe"
+msgstr "الموضع والحجم"
 
 #: Settings.ui.h:14
 msgid "Show favorite applications"
-msgstr "Favoriten anzeigen"
+msgstr "أظهر التطبيقات المفضّلة"
 
 #: Settings.ui.h:15
 msgid "Show running applications"
-msgstr "Laufende Anwendungen anzeigen"
+msgstr "أظهر التطبيقات قيد التشغيل"
 
 #: Settings.ui.h:16
 msgid ""
@@ -108,135 +104,125 @@ msgid ""
 "extension website."
 msgstr ""
 
-# Durchkopplung von Kompositum
 #: Settings.ui.h:17
 #, fuzzy
 msgid "Show <i>Show Applications</i> icon"
-msgstr "<i>Anwendungen anzeigen</i> zuerst"
+msgstr "أظهر أيقونة التطبيقات أولا"
 
 #: Settings.ui.h:18
 msgid "Move the applications button at the beginning of the dock."
-msgstr "Anwendungen-anzeigen-Button an den Anfang verschieben."
+msgstr ""
 
 #: Settings.ui.h:19
+#, fuzzy
 msgid "Behaviour when clicking on the icon of a running application."
-msgstr "Verhalten bei Mausklick auf das Icon einer laufenden Anwendung."
+msgstr "التصرّف عن النقر على أيقونة التطبيق قيد التشغيل."
 
 #: Settings.ui.h:20
 msgid "Click action"
-msgstr "Wirkung bei Mausklick"
+msgstr "حدث النقر"
 
 #: Settings.ui.h:21
 msgid "Do nothing"
-msgstr "Nichts tun"
+msgstr "لا تفعل شيئا"
 
 #: Settings.ui.h:22
 msgid "Minimize"
-msgstr "Minimieren"
+msgstr "صغّر"
 
 #: Settings.ui.h:23
 msgid "Launch new instance"
-msgstr "Neues Fenster"
+msgstr "شغّل نسخة جديدة"
 
-# Vielleicht einen Tick besser als „umschalten“?
 #: Settings.ui.h:24
 msgid "Cycle through windows"
-msgstr "Zwischen den Fenstern der Anwendung wechseln"
+msgstr "التبديل بين النوافذ"
 
 #: Settings.ui.h:25
 msgid ""
 "When set to minimize, double clicking minimizes all the windows of the "
 "application."
 msgstr ""
-"Wenn auf »Minimieren« eingestellt, können durch Doppelklick alle Fenster der "
-"Anwendung gleichzeitig minimiert werden."
 
 #: Settings.ui.h:26
 msgid "Shift+Click action"
-msgstr "Wirkung bei Umschalttaste + Mausklick"
+msgstr "حدث Shift+Click"
 
 #: Settings.ui.h:27
 msgid "Minimize window"
-msgstr "Minimieren"
+msgstr "صغّر النافذة"
 
 #: Settings.ui.h:28
-#, fuzzy
 msgid ""
 "If icons overflow the dock, only  the <i>Show Applications</i> icon is "
 "active."
 msgstr ""
-"Hierzu mit Mauszeiger Bereich des Docks nahe der Bildschirmkante oder "
-"<i>Anwendungen-anzeigen</i>-Button überfahren."
 
 #: Settings.ui.h:29
 msgid "Switch workspace by scrolling on the dock"
-msgstr "Arbeitsfläche durch Scrollen wechseln"
+msgstr "بدّل مساحة العمل عند التمرير فوق المرساة"
 
-# Verwende Übersetzung aus Nautilus
 #: Settings.ui.h:30
 msgid "Behavior"
-msgstr "Verhalten"
+msgstr "السلوك"
 
 #: Settings.ui.h:31
 msgid ""
 "Few customizations meant to integrate the dock wih the default GNOME theme. "
 "Alternatively, specific options can be enabled below."
 msgstr ""
-"Einige Anpassungen, durch die das Dock besser in das standardmäßige GNOME-"
-"Thema eingepasst werden soll. Alternativ können im Folgenden besondere "
-"Einstellungen vorgenommen werden."
 
 #: Settings.ui.h:32
 msgid "Use built-in theme"
-msgstr "Angepasstes Thema dieser Erweiterung nutzen"
+msgstr "استعمل السمة المضمّنة"
 
 #: Settings.ui.h:33
 msgid "Save space reducing padding and border radius."
-msgstr "Platz sparen, indem Innenabstand und Eckenradius verkleinert werden."
+msgstr ""
 
 #: Settings.ui.h:34
 msgid "Shrink the dash"
-msgstr "Dash verkleinern"
+msgstr "تقليص المرساة"
 
 #: Settings.ui.h:35
 msgid "Show a dot for each windows of the application."
-msgstr "Für jedes Fenster einer Anwendung einen kleinen Indikator einblenden."
+msgstr "أظهر نقطة لكل نوافذة من التطبيق."
 
 #: Settings.ui.h:36
 msgid "Show windows counter indicators"
-msgstr "Indikatoren für Fensterzahl"
+msgstr "أظهر مؤشرات عدد النوافذ"
 
 #: Settings.ui.h:37
 msgid "Tune the dash background opacity."
-msgstr "Die Hintergrundtransparenz des Docks einstellen."
+msgstr "ضبط إعتام خلفية المرساة."
 
 #: Settings.ui.h:38
 msgid "Customize opacity"
-msgstr "Transparenz anpassen"
+msgstr "خصّص الإعتام"
 
 #: Settings.ui.h:39
 msgid "Opacity"
-msgstr "Transparenz"
+msgstr "العتمة"
 
 #: Settings.ui.h:40
 msgid "Appearance"
-msgstr "Erscheinungsbild"
+msgstr "المظهر"
 
 #: Settings.ui.h:41
 msgid "version: "
-msgstr "Version: "
+msgstr "الإصدار:"
 
 #: Settings.ui.h:42
 msgid "Moves the dash out of the overview transforming it in a dock"
-msgstr "Verwandelt das Dash aus dem Übersichtsmodus in ein Dock"
+msgstr ""
 
 #: Settings.ui.h:43
 msgid "Created by"
-msgstr "Erstellt von"
+msgstr "أنشئ من طرف"
 
 #: Settings.ui.h:44
 msgid "Webpage"
-msgstr "Internetseite"
+msgstr ""
 
 #: Settings.ui.h:45
 msgid ""
@@ -244,86 +230,81 @@ msgid ""
 "See the <a href=\"https://www.gnu.org/licenses/old-licenses/gpl-2.0.html"
 "\">GNU General Public License, version 2 or later</a> for details.</span>"
 msgstr ""
-"<span size=\"small\">Für dieses Programm besteht KEINERLEI GARANTIE.\n"
-" Details finden Sie in der <a href=\"https://www.gnu.org/licenses/old-"
-"licenses/gpl-2.0.html\">GNU General Public License, Version 2 oder später</"
-"a>.</span>"
+"<span size=\"small\">هذا البرنامج يأتي بدون أي ضمانات.\n"
+"لمزيد من المعلومات أنظر <a href=\"https://www.gnu.org/licenses/old-licenses/"
+"gpl-2.0.html\">رخصة غنو العمومية، الإصدارة 2 فما فوق.</span>"
 
-# Verwende Übersetzung aus Nautilus
 #: Settings.ui.h:47
 msgid "About"
-msgstr "Info"
+msgstr "حول"
 
 #: Settings.ui.h:48
 msgid "Show the dock by mouse hover on the screen edge."
-msgstr "Dock einblenden, wenn Mauszeiger an Bildschirmkante anliegt."
+msgstr "أظهر المرساة بتمرير الفأرة على حافة النافذة"
 
 #: Settings.ui.h:49
 msgid "Autohide"
-msgstr "Automatisch verstecken"
+msgstr "إخفاء تلقائي"
 
 #: Settings.ui.h:50
 msgid "Push to show: require pressure to show the dock"
-msgstr ""
-"Anstoßen erforderlich: Dock nur einblenden, wenn Mauszeiger schnell gegen "
-"Bildschirmkante stößt"
+msgstr "اضغط للإظهار: يتطلب ضغطا لإظهار المرساة"
 
 #: Settings.ui.h:51
 msgid "Show the dock when it doesn't obstruct application windows."
-msgstr "Dock einblenden, falls es keine Anwendungsfenster überlagert."
+msgstr "إظهار المرساة عندما لا تحجب نوافذ التطبيق."
 
 #: Settings.ui.h:52
 msgid "Dodge windows"
-msgstr "Fenstern ausweichen"
+msgstr ""
 
 #: Settings.ui.h:53
 msgid "Only consider windows of the focused application"
-msgstr "Nur Fenster der fokussierten Anwendung einbeziehen"
+msgstr ""
 
-# Nach DIN 1313 werden Einheiten nicht in Klammern gesetzt
 #: Settings.ui.h:54
 msgid "Animation duration (s)"
-msgstr "Animationsdauer in s"
+msgstr "مدة التحريك (ثا)"
 
 #: Settings.ui.h:55
 msgid "0.000"
-msgstr "0,000"
+msgstr "0.000"
 
 #: Settings.ui.h:56
 msgid "Hide timeout (s)"
-msgstr "Ausblende-Verzögerung in s"
+msgstr "زمن الاختفاء (ثا)"
 
 #: Settings.ui.h:57
 msgid "Show timeout (s)"
-msgstr "Einblende-Verzögerung in s"
+msgstr "زمن الظهور (ثا)"
 
 #: Settings.ui.h:58
 msgid "Pressure threshold"
-msgstr "Stoßschwellwert"
+msgstr "عتبة الضغط"
 
 #~ msgid "Main Settings"
-#~ msgstr "Grundeinstellungen"
+#~ msgstr "الخصائص الأساسية"
 
 #~ msgid "Dock Position"
-#~ msgstr "Dock-Position"
+#~ msgstr "موضع المرساة"
 
 #~ msgid "Dock is fixed and always visible"
-#~ msgstr "Das Dock hat eine feste Position und ist immer sichtbar"
+#~ msgstr "المرساة ثابتة وظاهرة دائما"
 
 #~ msgid "Show delay [ms]"
-#~ msgstr "Einblendeverzögerung [ms]"
+#~ msgstr "تأخير الظهور (ميلي ثانية)"
 
 #~ msgid "Hide delay [ms]"
-#~ msgstr "Ausblendeverzögerung [ms]"
+#~ msgstr "تأخير الإخفاء (ميلي ثانية)"
 
 #~ msgid "Application based intellihide"
-#~ msgstr "Anwendungsbasiertes intelligentes Verstecken"
+#~ msgstr "إخفاء تلقائي على حسب التطبيق"
 
 #~ msgid "Show the dock on following monitor (if attached)"
-#~ msgstr "Zeige Dock auf folgendem Monitor (falls angeschlossen)"
+#~ msgstr "أظهر المرساة في الشاشة الحالية (إن وُصلت)"
 
 #~ msgid "Primary (default)"
-#~ msgstr "Primäranzeige (Standard)"
+#~ msgstr "الأساسية (الافتراضي)"
 
 #~ msgid "1"
 #~ msgstr "1"
@@ -338,13 +319,13 @@ msgstr "Stoßschwellwert"
 #~ msgstr "4"
 
 #~ msgid "Max height"
-#~ msgstr "Maximale Höhe"
+#~ msgstr "الارتفاع الأقصى"
 
 #~ msgid "Expand (experimental and buggy)"
-#~ msgstr "Komplette Höhe (experimentell und fehlerbehaftet)"
+#~ msgstr "تمديد (تجريبي)"
 
 #~ msgid "Maximum icon size"
-#~ msgstr "Maximale Symbolgröße"
+#~ msgstr "الحجم الأقصى للأيقونة"
 
 #~ msgid "16"
 #~ msgstr "16"
@@ -362,33 +343,35 @@ msgstr "Stoßschwellwert"
 #~ msgstr "64"
 
 #~ msgid "Optional features"
-#~ msgstr "Optionale Funktionen"
+#~ msgstr "ميزات إضافية"
 
 #~ msgid "Switch one workspace at a time"
-#~ msgstr "Nur eine Arbeitsfläche pro Scrollen weiterschalten"
+#~ msgstr "تبديل مساحة عمل واحدة في نفس الوقت"
 
 #~ msgid "Deadtime between each workspace switching [ms]"
-#~ msgstr "Stillstandszeit zwischen Arbeitsflächenwechsel [ms]"
+#~ msgstr "الوقت بين تبديل كل مساحة عمل"
 
 #~ msgid "Only a 1px wide area close to the screen edge is active"
-#~ msgstr "Nur einen 1 Pixel-breiten Bereich am Rand nutzen"
+#~ msgstr "مساحة بعرض 1 بكسل فقط قريبة من حافة الشاشة هي النشطة"
 
 #~ msgid "All the area of the dock is active"
-#~ msgstr "Den gesamten Bereich des Docks nutzen"
+#~ msgstr "جميع مناطق المرساة نشطة"
 
 #~ msgid "Customize actions on mouse click"
-#~ msgstr "Aktion bei Mausklick anpassen"
+#~ msgstr "خصّص حدث النقر على الفأرة"
 
 #~ msgid "Action on clicking on running app"
-#~ msgstr "Aktion beim Klicken auf eine laufende Anwendung"
+#~ msgstr "الحدث عن النقر على تطبيق قيد التشغيل"
 
 #~ msgid "Minimize window on shift+click (double click for all app windows)"
 #~ msgstr ""
-#~ "Fenster mit Shift+Klick minimieren (Doppelklick für alle Fenster der "
-#~ "Anwendung)"
+#~ "تصغير النافذة عند النقر مع shift (الضغط المزدوج بالنسبة لكل نوافذ التطبيق)"
+
+#~ msgid "Make message tray insensitive to mouse events"
+#~ msgstr "اجعل رسالة التنبيه غير حساسة لأحداث الفأرة"
 
 #~ msgid "Appearence and Themes"
-#~ msgstr "Erscheinungsbild und Themen"
+#~ msgstr "المظهر والسمة"
 
 #~ msgid ""
 #~ "A customized theme is built in the extension. This is meant to work with "
@@ -396,22 +379,17 @@ msgstr "Stoßschwellwert"
 #~ "background transparency reduced, and custom indicators for the number of "
 #~ "windows of each application are added."
 #~ msgstr ""
-#~ "Ein angepasstes Thema ist in dieser Erweiterung enthalten. Es ist für das "
-#~ "Vorgabe-Adwaita-Thema gedacht: Das Dash ist schmaler, um Platz zu sparen, "
-#~ "die Hintergrundtransparenz ist reduziert und für jede Anwendung wird ein "
-#~ "Indikator für die Anzahl der Fenster eingefügt."
+#~ "تم تضمين سمة مخصّصة للإضافة، هذا يعني أنها تعمل مع السمة الافتراضية "
+#~ "Adwaita: تقليص المرساة لكسب مساحة، إنقاص شفافيتها، كذلك تم إضافة مؤشرات "
+#~ "لعدد نوافذ التطبيق."
 
 #~ msgid ""
 #~ "Alternatively, for a better integration with custom themes, each "
 #~ "customization can be applied indipendently"
-#~ msgstr ""
-#~ "Alternativ können für eine bessere Integration Anpassungen vorgenommen "
-#~ "werden"
+#~ msgstr "بدلا من هذا، لتكاملية أفضل مع سمات مخصّصة، كل تخصيص يطبّق على حدة"
 
 #~ msgid "Shrink the dash size by reducing padding"
-#~ msgstr "Das Dash schmaler machen durch Verkleinern des Abstands zum Rand"
+#~ msgstr "مساحة المرساة بإنقاص الحشو"
 
-#~ msgid "Apply custom theme (work only with the default Adwaita theme)"
-#~ msgstr ""
-#~ "Benutzerdefiniertes Theme verwenden (funktioniert nur mit dem Standard-"
-#~ "Adwaita-Theme)"
+#~ msgid "Only when in autohide"
+#~ msgstr "Seulement en mode masquage intelligent"

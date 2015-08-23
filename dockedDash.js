@@ -258,6 +258,9 @@ const dockedDash = new Lang.Class({
         // connect app icon into the view selector
         this.dash.showAppsButton.connect('notify::checked', Lang.bind(this, this._onShowAppsButtonToggled));
 
+        if (!this._settings.get_boolean('show-show-apps-button'))
+            this.dash.hideShowAppsButton();
+
         // Create the main actor and the containers for sliding in and out and
         // centering, turn on track hover
 
@@ -335,11 +338,6 @@ const dockedDash = new Lang.Class({
                 Main.overview.viewSelector._showAppsButton,
                 'notify::checked',
                 Lang.bind(this, this._syncShowAppsButtonToggled)
-            ],
-            [
-                global.screen,
-                'in-fullscreen-changed',
-                Lang.bind(this, this._onFullscreenChanged)
             ],
             // Monitor windows overlapping
             [
@@ -537,12 +535,23 @@ const dockedDash = new Lang.Class({
             this.dash.setIconSize(this._settings.get_int('dash-max-icon-size'));
         }));
 
+        this._settings.connect('changed::icon-size-fixed', Lang.bind(this, function(){
+            this.dash.setIconSize(this._settings.get_int('dash-max-icon-size'));
+        }));
+
         this._settings.connect('changed::show-running', Lang.bind(this, function(){
             this.dash.resetAppIcons();
         }));
 
         this._settings.connect('changed::show-apps-at-top', Lang.bind(this, function(){
             this.dash.resetAppIcons();
+        }));
+
+        this._settings.connect('changed::show-show-apps-button', Lang.bind(this, function(){
+            if (this._settings.get_boolean('show-show-apps-button'))
+                this.dash.showShowAppsButton();
+            else
+                this.dash.hideShowAppsButton();
         }));
 
         this._settings.connect('changed::dock-fixed', Lang.bind(this, function(){
@@ -882,11 +891,6 @@ const dockedDash = new Lang.Class({
         this._show();
     },
 
-    _onFullscreenChanged: function() {
-        if (!this._slider.actor.visible)
-            this._updateBarrier();
-    },
-
     // Remove pressure barrier
     _removeBarrier: function() {
         if (this._barrier) {
@@ -914,7 +918,7 @@ const dockedDash = new Lang.Class({
 
         // Create new barrier
         // Note: dash in fixed position doesn't use pressure barrier
-        if (this._slider.actor.visible && this._canUsePressure && this._autohideIsEnabled && this._settings.get_boolean('require-pressure-to-show')) {
+        if (this._canUsePressure && this._autohideIsEnabled && this._settings.get_boolean('require-pressure-to-show')) {
             let x1, x2, y1, y2, direction;
 
             if(this._position==St.Side.LEFT){

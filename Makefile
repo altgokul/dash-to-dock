@@ -2,8 +2,8 @@
 
 UUID = dash-to-dock@micxgx.gmail.com
 BASE_MODULES = extension.js stylesheet.css metadata.json COPYING README.md
-EXTRA_MODULES = dockedDash.js intellihide.js myDash.js convenience.js prefs.js moveClock.js
-EXTRA_MEDIA = one.svg two.svg three.svg four.svg one_rtl.svg two_rtl.svg three_rtl.svg four_rtl.svg
+EXTRA_MODULES = dockedDash.js intellihide.js myDash.js convenience.js prefs.js Settings.ui moveClock.js
+EXTRA_MEDIA = one.svg two.svg three.svg four.svg one_rtl.svg two_rtl.svg three_rtl.svg four_rtl.svg one_bottom.svg two_bottom.svg three_bottom.svg four_bottom.svg one_top.svg two_top.svg three_top.svg four_top.svg logo.svg
 TOLOCALIZE =  prefs.js
 MSGSRC = $(wildcard po/*.po)
 INSTALLBASE = ~/.local/share/gnome-shell/extensions
@@ -37,12 +37,24 @@ mergepo: potfile
 		msgmerge -U $$l ./po/dashtodock.pot; \
 	done;
 
-./po/dashtodock.pot: $(TOLOCALIZE)
+./po/dashtodock.pot: $(TOLOCALIZE) Settings.ui
 	mkdir -p po
 	xgettext -k_ -kN_ -o po/dashtodock.pot --package-name "Dash to Dock" $(TOLOCALIZE)
+	intltool-extract --type=gettext/glade Settings.ui
+	xgettext -k_ -kN_ --join-existing -o po/dashtodock.pot Settings.ui.h
 
 ./po/%.mo: ./po/%.po
 	msgfmt -c $< -o $@
+
+# generate svgs for left bottom right top by rotating the left ones
+generate_dots_svgs: ./media/dots.svg
+	cd media; \
+	for i in one two three four; do \
+		cp dots.svg $${i}.svg && inkscape $${i}.svg  --select=$${i} --verb=EditInvertInAllLayers --verb=EditDelete --verb=FileSave --verb=FileQuit  && \
+		cp $${i}.svg $${i}_top.svg && inkscape $${i}_top.svg  --select=$${i} --verb=ObjectRotate90 --verb=FileSave --verb=FileQuit && \
+		cp $${i}_top.svg $${i}_rtl.svg && inkscape $${i}_rtl.svg  --select=$${i} --verb=ObjectRotate90 --verb=FileSave --verb=FileQuit && \
+		cp $${i}_rtl.svg $${i}_bottom.svg && inkscape $${i}_bottom.svg  --select=$${i} --verb=ObjectRotate90 --verb=FileSave --verb=FileQuit ; \
+	done;
 
 install: install-local
 
@@ -75,4 +87,4 @@ _build: all
 		mkdir -p $$lf/LC_MESSAGES; \
 		cp $$l $$lf/LC_MESSAGES/dashtodock.mo; \
 	done;
-	sed -i 's/"version": 0/"version": "$(VERSION)"/'  _build/metadata.json;
+	sed -i 's/"version": -1/"version": "$(VERSION)"/'  _build/metadata.json;

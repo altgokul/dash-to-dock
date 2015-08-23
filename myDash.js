@@ -561,12 +561,20 @@ const myDash = new Lang.Class({
         if (event.is_pointer_emulated())
             return Clutter.EVENT_STOP;
 
-        let adjustment, delta;
+        let adjustment, delta, needscroll;
 
-        if (this._isHorizontal)
+        if (this._isHorizontal) {
             adjustment = this._scrollView.get_hscroll_bar().get_adjustment();
-        else
+            needscroll = actor.get_width() < actor.get_preferred_width(-1)[1];
+        } else {
             adjustment = this._scrollView.get_vscroll_bar().get_adjustment();
+            needscroll = actor.get_height() < actor.get_preferred_height(-1)[1];
+        }
+
+        // If scroll is not needed, either because icon are set to be resized or
+        // the space available is enough, let the scroll event propagate.
+        if (!needscroll)
+          return Clutter.EVENT_PROPAGATE;
 
         let increment = adjustment.step_increment;
 
@@ -885,6 +893,7 @@ const myDash = new Lang.Class({
 
         let availSize = availHeight / iconChildren.length;
 
+
         let newIconSize = this._availableIconSizes[0];
         for (let i = 0; i < iconSizes.length; i++) {
             if (iconSizes[i] < availSize)
@@ -946,13 +955,15 @@ const myDash = new Lang.Class({
         // Apps supposed to be in the dash
         let newApps = [];
 
-        for (let id in favorites)
-            newApps.push(favorites[id]);
+        if( this._dtdSettings.get_boolean('show-favorites') ) {
+            for (let id in favorites)
+                newApps.push(favorites[id]);
+        }
 
         if( this._dtdSettings.get_boolean('show-running') ) {
             for (let i = 0; i < running.length; i++) {
                 let app = running[i];
-                if (app.get_id() in favorites)
+                if (this._dtdSettings.get_boolean('show-favorites') && (app.get_id() in favorites) )
                     continue;
                 newApps.push(app);
             }
@@ -1138,7 +1149,7 @@ const myDash = new Lang.Class({
         if (app == null || app.is_window_backed())
             return DND.DragMotionResult.NO_DROP;
 
-        if (!this._settings.is_writable('favorite-apps'))
+        if (!this._settings.is_writable('favorite-apps') || !this._dtdSettings.get_boolean('show-favorites'))
             return DND.DragMotionResult.NO_DROP;
 
         let favorites = AppFavorites.getAppFavorites().getFavorites();
@@ -1235,7 +1246,7 @@ const myDash = new Lang.Class({
             return false;
         }
 
-        if (!this._settings.is_writable('favorite-apps'))
+        if (!this._settings.is_writable('favorite-apps') || !this._dtdSettings.get_boolean('show-favorites'))
             return false;
 
         let id = app.get_id();
@@ -1274,7 +1285,20 @@ const myDash = new Lang.Class({
             }));
 
         return true;
+    },
+
+    showShowAppsButton: function() {
+        this.showAppsButton.visible = true
+        this.showAppsButton.set_width(-1)
+        this.showAppsButton.set_height(-1)
+    },
+
+    hideShowAppsButton: function() {
+        this.showAppsButton.hide()
+        this.showAppsButton.set_width(0)
+        this.showAppsButton.set_height(0)
     }
+
 });
 
 Signals.addSignalMethods(myDash.prototype);
