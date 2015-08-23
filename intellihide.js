@@ -73,7 +73,7 @@ const intellihide = new Lang.Class({
                 Lang.bind(this, this._grabOpEnd)
             ],
             // direct maximize/unmazimize are not included in grab-operations
-            [
+            /*[
                 global.window_manager,
                 'maximize', 
                 Lang.bind(this, this._checkOverlap )
@@ -82,7 +82,7 @@ const intellihide = new Lang.Class({
                 global.window_manager,
                 'unmaximize',
                 Lang.bind(this, this._checkOverlap )
-            ],
+            ],*/
             // triggered for instance when the window list order changes,
             // included when the workspace is switched
             [
