@@ -347,8 +347,8 @@ const myDashActor = new Lang.Class({
 
             childBox.y1 = contentBox.y1;
             childBox.x1 = contentBox.x1;
-            childBox.x2 = contentBox.x1 + showAppsNatWidth;
-            childBox.y2 = contentBox.y1 + showAppsNatHeight;
+            childBox.x2 = contentBox.x1 + availHeight; //showAppsNatWidth;
+            childBox.y2 = contentBox.y1 + availHeight; //showAppsNatHeight;
             showAppsButton.allocate(childBox, flags);
         } else {
             childBox.x1 = contentBox.x1;
@@ -1098,7 +1098,6 @@ const myDash = new Lang.Class({
             this._shownInitially = false;
 
         this._queueRedisplay();
-
     },
 
     // Reset the displayed apps icon to mantain the correct order when changing
