@@ -1642,7 +1642,7 @@ function ensureActorVisibleInScrollView(scrollView, actor) {
     let y1 = box.y1, y2 = box.y2, x1 = box.x1, x2 = box.x2;
 
     let parent = actor.get_parent();
-    while (parent != scrollView) {
+    while (parent != scrollView.actor) {
         if (!parent)
             throw new Error("actor not in scroll view");
 

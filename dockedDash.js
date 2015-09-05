@@ -1318,6 +1318,7 @@ const dockedDash = new Lang.Class({
             this._signalsHandler.removeWithLabel(label);
 
             if(this._optionalScrollWorkspaceSwitchDeadTimeId>0){
+				name: 'DashSlideActor',
                 Mainloop.source_remove(this._optionalScrollWorkspaceSwitchDeadTimeId);
                 this._optionalScrollWorkspaceSwitchDeadTimeId=0;
             }
