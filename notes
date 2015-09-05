@@ -1,0 +1,23 @@
+panel_center
+dashtodockContainer
+shellGenericContainer
+dashtodockBox
+Gjs_DashItemContainer
+st.button app-well-app
+stwidget:last-child first-child
+stwidget:app-well-app-running-dot
+
+---------------------------------
+dockedDash.name = "dockedDash" (dockedDash)
+dockedDash.actor.name = "dashtodockContainer" (St.Bin)
+dockedDash._slider.name = "DashSlideContainer" (DashSlideContainer)
+dockedDash._slider.actor.name = "DashSlideActor" (Shell.GenericContainer)
+dockedDash._box.name = "dashtodockBox" (St.BoxLayout)
+dockedDash.dash.name = "dashToDock.myDash" (myDash)
+dockedDash.dash._containerObject.name = "DashToDockmyDashActor" (myDashActor fork of ui.dash.js)
+dockedDash.dash._containerObject.actor.name = "dash" (Shell.GenericContainer)
+
+---------------------------------
+
+dockedDash.actor.__child = 
+

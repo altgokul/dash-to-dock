@@ -707,11 +707,10 @@ const myDash = new Lang.Class({
         let item = new Dash.DashItemContainer();
 
         extendDashItemContainer(item, this._dtdSettings);
-        item.setChild(appIcon.actor);
-
 
         item.setChild(appIcon.actor);
-        appIcon.actor.connect('notify::hover', Lang.bind(this, function() {
+
+		appIcon.actor.connect('notify::hover', Lang.bind(this, function() {
             if (appIcon.actor.hover){
                 this._ensureAppIconVisibilityTimeoutId = Mainloop.timeout_add(100, Lang.bind(this, function(){
                     ensureActorVisibleInScrollView(this._scrollView, appIcon.actor);
@@ -743,6 +742,7 @@ const myDash = new Lang.Class({
                     appIcon._menu._boxPointer.yOffset = -y_shift;
                 }
         }));
+
 
         // Override default AppIcon label_actor, now the
         // accessible_name is set at DashItemContainer.setLabelText

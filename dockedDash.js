@@ -73,6 +73,7 @@ const DashSlideContainer = new Lang.Class({
 
         /* Default local params */
         let localDefaults = {
+			name: 'DashSlideActor',
             side: St.Side.LEFT,
             initialSlideValue: 1
         }
@@ -436,7 +437,8 @@ const dockedDash = new Lang.Class({
         Main.layoutManager._trackActor(this._slider.actor, {trackFullscreen: true});
 
         // Keep the dash below the modalDialogGroup
-        Main.layoutManager.uiGroup.set_child_below_sibling(this.actor,Main.layoutManager.modalDialogGroup);
+        //Mych -- this is not part of the uiGroup now
+        //Main.layoutManager.uiGroup.set_child_below_sibling(this.actor,Main.layoutManager.modalDialogGroup);
 
         if ( this._settings.get_boolean('dock-fixed') )
           Main.layoutManager._trackActor(this.dash.actor, {affectsStruts: true});

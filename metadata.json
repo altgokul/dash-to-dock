@@ -1,7 +1,7 @@
 {
-"shell-version": ["3.16"],
-"uuid": "dash-to-dock@micxgx.gmail.com",
-"name": "Dash to Dock",
+"shell-version": ["3.16", "etc"],
+"uuid": "dash_to_top_bar@q",
+"name": "Dash to Top Bar",
 "description": "A dock for the Gnome Shell. This extension moves the dash out of the overview transforming it in a dock for an easier launching of applications and a faster switching between windows and desktops. Side and bottom placement options are available.",
 "original-author": "micxgx@gmail.com",
 "url": "https://micheleg.github.io/dash-to-dock/",
