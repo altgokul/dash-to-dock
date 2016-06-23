@@ -1,5 +1,5 @@
 # Dash to Dock
-![screenshot](https://github.com/micheleg/dash-to-dock/raw/master/media/screenshot.jpg)
+![screenshot](https://github.com/altgokul/dash-to-dock/blob/master/media/dash-to-dock-in-topbar.png)
 
 ## A dock for the GNOME Shell
 This extension enhances the dash moving it out of the overview and transforming it in a dock for an easier launching of applications and a faster switching between windows and desktops without having to leave the desktop view.
