@@ -2,30 +2,26 @@
 
 const Me = imports.misc.extensionUtils.getCurrentExtension();
 const Convenience = Me.imports.convenience;
-const DockedDash = Me.imports.dockedDash;
+const Docking = Me.imports.docking;
 const moveClock = Me.imports.moveClock;
 const Main = imports.ui.main;
 
 let settings;
 let dock;
-
 let oldDash;
 
 function init() {
-
 }
 
 function enable() {
-
     settings = Convenience.getSettings('org.gnome.shell.extensions.dash-to-dock');
 
     moveClock.enable_clock_move();
 
-    dock = new DockedDash.dockedDash(settings);
+    dock = new Docking.DockedDash(settings);
 
-    /* Pretend I'm the dash: meant to make appgrd swarm animation come from the
-     * right position of the appShowButton.
-     */
+    // Pretend I'm the dash: meant to make appgrd swarm animation come from the
+    // right position of the appShowButton.
     oldDash  = Main.overview._dash;
     Main.overview._dash = dock.dash;
     bindSettingsChanges();
@@ -45,10 +41,9 @@ function disable() {
 function bindSettingsChanges() {
     // This settings change require a full reload.
 
-    /* It's easier to just reload the extension when the dock position changes
-     * rather than working out all changes to the differen containers.
-     */
-    settings.connect('changed::dock-position', function(){
+    // It's easier to just reload the extension when the dock position changes
+    // rather than working out all changes to the differen containers.
+    settings.connect('changed::dock-position', function() {
         disable();
         enable();
     });
